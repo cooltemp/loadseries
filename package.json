@@ -1,0 +1,22 @@
+{
+  "name": "node-starter",
+  "private": true,
+  "scripts": {
+    "start": "npx tsc hvac-unit-series.ts && node hvac-unit-series.js",
+    "build": "tsc",
+    "run-js": "node index.js",
+    "compile-run": "npx tsc index.ts && node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "fs-extra": "^11.3.0",
+    "path": "^0.12.7",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
