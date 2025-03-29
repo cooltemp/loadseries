@@ -212,6 +212,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-GS35VFD",
       model: "Standard GS35 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5837f8ad839a49f3abd2a640b76ae981",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1538.90,
         isTaxIncluded: true,
@@ -294,6 +299,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-GS50VFD",
       model: "Standard GS50 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2077.90,
         isTaxIncluded: true,
@@ -376,6 +386,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-GS60VFD",
       model: "Standard GS60 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2528.90,
         isTaxIncluded: true,
@@ -458,6 +473,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-GS71VFD",
       model: "Standard GS71 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "d3fa79549e624a3fb0cad68e93bac155",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3243.90,
         isTaxIncluded: true,
@@ -540,6 +560,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-GS80VFD",
       model: "Standard GS80 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5411da7ae9764b15b40786171eb7998a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3628.90,
         isTaxIncluded: true,
@@ -622,6 +647,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP20VGD",
       model: "Classic AP20 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "eb213e2b09734a9ab06d07c2bada6d2e",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1428.90,
         isTaxIncluded: true,
@@ -705,6 +735,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP25VGD2",
       model: "Classic AP25 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5d24e2ec38be49028e355322239bd44a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1538.90,
         isTaxIncluded: true,
@@ -788,6 +823,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP35VGD2",
       model: "Classic AP35 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5837f8ad839a49f3abd2a640b76ae981",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1538.90,
         isTaxIncluded: true,
@@ -870,6 +910,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP42VGD2",
       model: "Classic AP42 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1648.90,
         isTaxIncluded: true,
@@ -952,6 +997,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP50VGD2",
       model: "Classic AP50 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2033.90,
         isTaxIncluded: true,
@@ -1034,6 +1084,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP60VGD2",
       model: "Classic AP60 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2198.90,
         isTaxIncluded: true,
@@ -1116,6 +1171,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP71VGD2",
       model: "Classic AP71 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "d3fa79549e624a3fb0cad68e93bac155",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2693.90,
         isTaxIncluded: true,
@@ -1198,6 +1258,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP80VGD2",
       model: "Classic AP80 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5411da7ae9764b15b40786171eb7998a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3518.90,
         isTaxIncluded: true,
@@ -1280,6 +1345,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP25VGKD2",
       model: "Plus AP25 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5d24e2ec38be49028e355322239bd44a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1648.90,
         isTaxIncluded: true,
@@ -1362,6 +1432,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP35VGKD2",
       model: "Plus AP35 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5837f8ad839a49f3abd2a640b76ae981",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1758.90,
         isTaxIncluded: true,
@@ -1444,6 +1519,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP42VGKD2",
       model: "Plus AP42 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2143.90,
         isTaxIncluded: true,
@@ -1526,6 +1606,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP50VGKD2",
       model: "Plus AP50 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2308.90,
         isTaxIncluded: true,
@@ -1608,6 +1693,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP60VGKD2",
       model: "Plus AP60 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2803.90,
         isTaxIncluded: true,
@@ -1690,6 +1780,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP71VGKD2",
       model: "Plus AP71 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "d3fa79549e624a3fb0cad68e93bac155",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3628.90,
         isTaxIncluded: true,
@@ -1772,6 +1867,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AP80VGKD2",
       model: "Plus AP80 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5411da7ae9764b15b40786171eb7998a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 4013.90,
         isTaxIncluded: true,
@@ -1854,6 +1954,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-EF25VGKD",
       model: "Designer EF25 High Wall Heat Pump - Pure White",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5d24e2ec38be49028e355322239bd44a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1725.90,  // EF25: $1,569.00 + 10%
         isTaxIncluded: true,
@@ -1936,6 +2041,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-EF35VGKD",
       model: "Designer EF35 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5837f8ad839a49f3abd2a640b76ae981",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 1890.90,  // EF35: $1,719.00 + 10%
         isTaxIncluded: true,
@@ -2018,6 +2128,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-EF42VGKD",
       model: "Designer EF42 High Wall Heat Pump - Pure White",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2220.90,  // EF42: $2,019.00 + 10%
         isTaxIncluded: true,
@@ -2100,6 +2215,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-EF50VGKD",
       model: "Designer EF50 High Wall Heat Pump - Pure White",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2418.90,  // EF50: $2,199.00 + 10%
         isTaxIncluded: true,
@@ -2182,6 +2302,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MSZ-AS90VGD-A2",
       model: "Large Capacity AS90 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5411da7ae9764b15b40786171eb7998a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 4123.90,  // AS90: $3,749.00 + 10%
         isTaxIncluded: true,
@@ -2264,6 +2389,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PKA-M71KAL",
       model: "Light Commercial PKA71 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "d3fa79549e624a3fb0cad68e93bac155",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 5828.90,  // PKA-M71KAL: $5,299.00 + 10%
         isTaxIncluded: true,
@@ -2346,6 +2476,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PKA-M100KAL",
       model: "Light Commercial PKA100 High Wall Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "579dacd0a011405b9f9a0eba5049ff3c",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 7258.90,  // PKA-M100KAL: $6,599.00 + 10%
         isTaxIncluded: true,
@@ -2428,6 +2563,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW25VGK",
       model: "RapidHeat KW25 Floor Console with Built in Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5d24e2ec38be49028e355322239bd44a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2616.90,  // KW25 WiFi: $2,379.00 + 10%
         isTaxIncluded: true,
@@ -2510,6 +2650,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW35VGK",
       model: "RapidHeat KW35 Floor Console with Built in Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5837f8ad839a49f3abd2a640b76ae981",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2836.90,  // KW35 WiFi: $2,579.00 + 10%
         isTaxIncluded: true,
@@ -2592,6 +2737,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW42VGK",
       model: "RapidHeat KW42 Floor Console with Built in Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3056.90,  // KW42 WiFi: $2,779.00 + 10%
         isTaxIncluded: true,
@@ -2674,6 +2824,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW50VGK",
       model: "RapidHeat KW50 Floor Console with Built in Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3386.90,  // KW50 WiFi: $3,079.00 + 10%
         isTaxIncluded: true,
@@ -2756,6 +2911,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW60VGK",
       model: "RapidHeat KW60 Floor Console with Built in Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3826.90,  // KW60 WiFi: $3,479.00 + 10%
         isTaxIncluded: true,
@@ -2838,6 +2998,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW50VGKHZ",
       model: "HyperCore KW50 Floor Console with Built-In Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3826.90,  // KW50 HyperCore WiFi: $3,479.00 + 10%
         isTaxIncluded: true,
@@ -2920,6 +3085,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "MFZ-KW60VGKHZ",
       model: "HyperCore KW60 Floor Console with Built-In Wi-Fi Control",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 4376.90,  // KW60 HyperCore WiFi: $3,979.00 + 10%
         isTaxIncluded: true,
@@ -3002,6 +3172,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "SLZ-M25FA",
       model: "Classic SLZ25 Cassette Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5d24e2ec38be49028e355322239bd44a",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 2968.90,  // SLZ-M25FA Wired: $2,699.00 + 10%
         isTaxIncluded: true,
@@ -3084,6 +3259,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "SLZ-M35FA",
       model: "Classic SLZ35 Cassette Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "5837f8ad839a49f3abd2a640b76ae981",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3243.90,  // SLZ-M35FA Wired: $2,949.00 + 10%
         isTaxIncluded: true,
@@ -3166,6 +3346,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "SLZ-M50FA",
       model: "Classic SLZ50 Cassette Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3738.90,  // SLZ-M50FA Wired: $3,399.00 + 10%
         isTaxIncluded: true,
@@ -3248,6 +3433,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "SLZ-M60FA",
       model: "Classic SLZ60 Cassette Heat Pump",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 4288.90,  // SLZ-M60FA Wired: $3,899.00 + 10%
         isTaxIncluded: true,
@@ -3330,6 +3520,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEAD-M50JAA",
       model: "PEAD-M50JAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "c9bb4a0b6dec4f33a32964ac3692ad4f",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 3738.90,  // PEAD-M50JAA: $3,399.00 + 10%
         isTaxIncluded: true,
@@ -3412,6 +3607,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEAD-M60JAA",
       model: "PEAD-M60JAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "7837ea59cd8041c5a4ef3b23f4f812e4",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 4123.90,  // PEAD-M60JAA: $3,749.00 + 10%
         isTaxIncluded: true,
@@ -3494,6 +3694,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEAD-M71JAA",
       model: "PEAD-M71JAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "d3fa79549e624a3fb0cad68e93bac155",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 4618.90,  // PEAD-M71JAA: $4,199.00 + 10%
         isTaxIncluded: true,
@@ -3576,6 +3781,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEAD-M100JAA",
       model: "PEAD-M100JAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "579dacd0a011405b9f9a0eba5049ff3c",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 6268.90,  // PEAD-M100JAA: $5,699.00 + 10%
         isTaxIncluded: true,
@@ -3658,6 +3868,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEAD-M125JAA",
       model: "PEAD-M125JAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "579dacd0a011405b9f9a0eba5049ff3c",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 6048.90,  // PEAD-M125JAA: $5,499.00 + 10%
         isTaxIncluded: true,
@@ -3740,6 +3955,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEAD-M140JAA",
       model: "PEAD-M140JAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "6557f02879c64b35a4d919614c52cb80",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 7368.90,  // PEAD-M140JAA: $6,699.00 + 10%
         isTaxIncluded: true,
@@ -3822,6 +4042,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEA-M100GAA",
       model: "PEA-M100GAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "579dacd0a011405b9f9a0eba5049ff3c",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 10448.90,
         isTaxIncluded: true,
@@ -3904,6 +4129,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEA-M125GAA",
       model: "PEA-M125GAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "579dacd0a011405b9f9a0eba5049ff3c",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 12098.90,
         isTaxIncluded: true,
@@ -3986,6 +4216,11 @@ export const items: HVACUnit[] = [
     data: {
       sku: "PEA-M140GAA",
       model: "PEA-M140GAA Ducted",
+      useCase:{
+        "@type": "@builder.io/core:Reference",
+        "id": "6557f02879c64b35a4d919614c52cb80",
+        "model": "hvac-use-case"
+      },
       price: {
         originalPrice: 13088.90,
         isTaxIncluded: true,
