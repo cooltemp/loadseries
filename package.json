@@ -2,7 +2,7 @@
   "name": "node-starter",
   "private": true,
   "scripts": {
-    "start": "npx tsc hvac-unit-series.ts && node hvac-unit-series.js",
+    "start": "npx tsc hvac-unit.ts && node hvac-unit.js",
     "build": "tsc",
     "run-js": "node index.js",
     "compile-run": "npx tsc index.ts && node index.js"

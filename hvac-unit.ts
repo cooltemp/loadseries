@@ -15,7 +15,7 @@ const importData = async () => {
   try {
     // Send all requests in parallel
     const requests = items.map(async (item) => {
-      return axios.post(`https://builder.io/api/v1/write/hvac-unit-series`, {
+      return axios.post(`https://builder.io/api/v1/write/hvac-unit`, {
         name: item.name,
         data: item.data,
         published: "published"
@@ -31,7 +31,7 @@ const importData = async () => {
 
     console.log('✅ All data successfully imported!');
     responses.forEach((res, index) => {
-      console.log(`✅ Item ${index + 1} imported:`, res.data);
+      console.log(`✅ Item ${index + 1} imported:`, res?.data);
     });
   } catch (error: any) {
     console.error('❌ Error importing data:', error.response?.data || error);

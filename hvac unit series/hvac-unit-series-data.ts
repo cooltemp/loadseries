@@ -2,11 +2,11 @@ const MODEL_ID = '017645db0453454b8f5f6ff753822eb9';
 
 
 interface Media {
-    media: string;
+    file: string;
   }
   
   interface WarrantyDocument {
-    document: string;
+    file: string;
   }
   
   interface WarrantyOption {
@@ -23,16 +23,6 @@ interface Media {
     homeAutomationIntegration: boolean;
   }
   
-  /* interface Size {
-    heatingKw: number;
-    sizeKw: number;
-    name: {
-      "@type": string;
-      id: string;
-      model: string;
-    };
-  } */
-  
   interface KeyFeature {
     icon:string;
     summary: string;
@@ -42,28 +32,25 @@ interface Media {
   interface HVACUnitSeriesData {
     seriesCode: string;
     unitConfig:
-      | 'High Wall Split System'
-      | 'Ducted'
-      | 'Portable'
-      | 'Cassette'
+      | 'High Wall Mounted'
+      | 'Central Ducted'
+      | 'Ceiling Mounted'
       | 'Multi-Split System'
-      | 'Window Air Conditioner'
-      | 'Floor Mounted'
-      | 'Ceiling Mounted Ductless'
-      | 'Ceiling Suspended';
+      | 'Floor Console'
     smartFeatures: SmartFeatures;
+    class: 'Basic' | 'Plus' | 'Premium';
     brand: 'Mitsubishi';
     keyFeatures: KeyFeature[];
-    productMedia: Media[];
-    name: string /* Designer Series */;
+  media: Media[];
+    name: string;
     thumbnailImage: string;
     warrantyOptions: WarrantyOption[];
     description: string;
-    /* relatedAccessories: string;*/
-    /* servicePlans: string; */
-    /* installationRequirements: string; */
-    /*  installationOptions: string; */
-    /* sizes: Size[]; */
+    servicePlans: any[]; 
+    relatedAccessories: any[];
+    sizes: {name: string; sku:string}[]; 
+    documents:{name:  'Brochure'| 'Operation Manual / User Guide' | 'Installation Manual'| 'Wifi Control Instructions'| 'Quick Start Guide' | 'Cleaning Instructions', file:string; }[];
+
   }
   
   interface HVACUnitSeries {
@@ -79,7 +66,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "GS",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -139,26 +126,107 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-waves"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fe68021560bf943579e191c05cc279204"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F251d7e7eb71c49e9a78c2019adb32e0a"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F57c5fb0542404c5ca225ea4cedea4db1"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F535e4d2b72894fada58a53c381b33167"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F25ed3604f6fb46b494aabb19e366fd9d"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F451f5e7316d2491e80183720bca6dcab"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F87e5be3833254e4a89b3e26f10347eea"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Faa620d3b14be493793dfe0b0f38a0115"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F4c8fa60ecd304420838941b27cfbd7c3"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F0424d64f3c314064b93c9c5a48a05eef"
           }
         ],
         name: "GS Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fe36d26d0dcf14c73bdea05fdb958d46f",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69334B/standard-gs-25-high-wall-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The GS Series delivers exceptional value with efficient heating and cooling that's perfect for New Zealand homes. Built with superior Japanese technology, this heat pump combines affordable comfort with reliable performance in all seasons. Its user-friendly features and energy-efficient operation make it an ideal choice for families wanting quality climate control without compromising on running costs."
+        description: "The GS Series delivers exceptional value with efficient heating and cooling that's perfect for New Zealand homes. Built with superior Japanese technology, this heat pump combines affordable comfort with reliable performance in all seasons. Its user-friendly features and energy-efficient operation make it an ideal choice for families wanting quality climate control without compromising on running costs.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Basic',
+        sizes:[
+          {sku:'MSZ-GS25VFD', name:'GS25'},
+          {sku:'MSZ-GS35VFD', name:'GS35'},
+          {sku:'MSZ-GS50VFD', name:'GS50'},
+          {sku:'MSZ-GS60VFD', name:'GS60'},
+          {sku:'MSZ-GS71VFD', name:'GS71'},
+          {sku:'MSZ-GS80VFD', name:'GS80'},
+        ],
+        documents: [
+          {name:'Brochure', file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@msz-gs.pdf' },
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/msz_muz-gs/1_operation/om_msz-gs25-80vfd-a1_jg79y822h02.pdf'},
+          {name:"Quick Start Guide", file:"https://mitsubishi-electric.co.nz/materials/aircon/info_guides/heat-pump-guide-gs-series.pdf"},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -166,7 +234,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "AP",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -216,26 +284,81 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F6a4419ac2c56437bb743b1a2de12822b"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F302b51d637714be0bb184fd9b643025f"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fdee351c8fde34b73bdea57473bcbd639"
           }
         ],
         name: "AP Mini Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fe8470e880a6141539cae85bfcbd55d1c",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69325B/classic-ap-20-high-wall-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The AP Mini Series is New Zealand's smallest high wall heat pump, making it perfect for bedrooms and compact spaces. Despite its small size, it delivers powerful performance and smart features that keep your room comfortable while saving energy. Its whisper-quiet operation, advanced filtration options, and user-friendly controls make it an ideal choice for creating comfortable, healthy spaces in any home."
+        description: "The AP Mini Series is New Zealand's smallest high wall heat pump, making it perfect for bedrooms and compact spaces. Despite its small size, it delivers powerful performance and smart features that keep your room comfortable while saving energy. Its whisper-quiet operation, advanced filtration options, and user-friendly controls make it an ideal choice for creating comfortable, healthy spaces in any home.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Plus',
+        sizes:[
+          {sku:'MSZ-AP20VGD', name:'AP20'}
+        ],
+        documents: [
+          {name:'Brochure', file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@msz-ap-mini.pdf' },
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/msz_muz-ap/1_operation/om_msz-ap25-50vg(k)d2_dg79a0clh01.pdf'},
+          {name:"Quick Start Guide", file:"https://mitsubishi-electric.co.nz/materials/aircon/info_guides/heat-pump-guide-ap-series.pdf"},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -243,7 +366,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "AP",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -298,26 +421,110 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F19518867bd6b468a9d3e279144aa091f"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fde5f731c229640b49282d6f625d78051"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F89e30b27476748ecbb10a263903b9d77"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F1120c10aee464ca8a028c3c0bfe4ed1c"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F293efdd5319f425ebd433153163f3104"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F7384eb141d6d4fd0b9c1e79337799d12"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F969eaad4daea44febb4ef4a290d2fb93"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Facd668823c2541dba23cb93bdb689eb4"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F1c3de6f991584790afbf051ad3e231ff"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F9461d57346cc448f85769feac1d25df0"
           }
         ],
         name: "AP Classic Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F9a95513c7a7042e2863f01fe18fcacb0",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69407B/classic-ap-25-high-wall-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The AP Classic Series sets a new standard in super-efficient, whisper-quiet heating and cooling. Starting at just 18dBA, it's New Zealand's quietest heat pump - perfect for bedrooms and living spaces where peace and quiet matter most. With advanced features like self-cleaning technology and optional Wi-Fi control, it delivers year-round comfort while keeping running costs low. Its superior air filtration and draft-free operation make it an ideal choice for families wanting the perfect balance of comfort, efficiency, and clean, healthy air."
+        description: "The AP Classic Series sets a new standard in super-efficient, whisper-quiet heating and cooling. Starting at just 18dBA, it's New Zealand's quietest heat pump - perfect for bedrooms and living spaces where peace and quiet matter most. With advanced features like self-cleaning technology and optional Wi-Fi control, it delivers year-round comfort while keeping running costs low. Its superior air filtration and draft-free operation make it an ideal choice for families wanting the perfect balance of comfort, efficiency, and clean, healthy air.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Plus',
+        sizes:[
+          {sku:'MSZ-AP25VGD2', name:'AP25'},
+          {sku:'MSZ-AP30VGD2', name:'AP30'},
+          {sku:'MSZ-AP35VGD2', name:'AP35'},
+          {sku:'MSZ-AP40VGD2', name:'AP40'},
+          {sku:'MSZ-AP45VGD2', name:'AP45'},
+          {sku:'MSZ-AP50VGD2', name:'AP50'},
+          {sku:'MSZ-AP60VGD2', name:'AP60'},
+          {sku:'MSZ-AP71VGD2', name:'AP71'},
+          {sku:'MSZ-AP80VGD2', name:'AP80'},
+        ],
+        documents: [
+          {name:'Brochure', file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@msz-ap.pdf' },
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/msz_muz-ap/1_operation/om_msz-ap25-50vg(k)d2_dg79a0clh01.pdf'},
+          {name:"Quick Start Guide", file:"https://mitsubishi-electric.co.nz/materials/aircon/info_guides/heat-pump-guide-ap-series.pdf"},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -325,7 +532,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "AP",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -410,26 +617,111 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F3951bb4604c94c6c9f5f675810b26a75"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fc4f708b103064fc9879b8f47184f7434"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Ff25f5a202af242fc853f73af15c316ca"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fbdf823ff63454638b3be1a1f36a25109"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F5b71bb0a61ed4deaa86e234d78b89493"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F8f629d03108a4470b612e1d9c2983d73"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F88abceabc387415fb1b5b3726f01e4cb"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F35753736f53944f3a121070b20f5ae37"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fe9642b6645d54d50ae8d3abcc74cc1a8"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Faa1b9d3cb7704a7c8b0583caff5ff239"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F8e04eab0b1014ae4a050c6748726ba2e"
           }
         ],
         name: "AP Plus Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F9a95513c7a7042e2863f01fe18fcacb0",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69400B/ecocore-ap-25-high-wall-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The AP Plus Series combines New Zealand's quietest heat pump technology with smart energy monitoring, making it the perfect choice for comfort-conscious homeowners. Starting at just 18dBA, it's whisper-quiet while delivering efficient heating and cooling throughout the year. With built-in Wi-Fi Energy Monitoring, homeowners can track and optimize their energy usage right from their smartphone. Its advanced features, including self-cleaning technology and superior air filtration, create the perfect balance of comfort, efficiency, and healthy air quality. Ideal for bedrooms and living spaces where both quietness and smart control matter most."
+        description: "The AP Plus Series combines New Zealand's quietest heat pump technology with smart energy monitoring, making it the perfect choice for comfort-conscious homeowners. Starting at just 18dBA, it's whisper-quiet while delivering efficient heating and cooling throughout the year. With built-in Wi-Fi Energy Monitoring, homeowners can track and optimize their energy usage right from their smartphone. Its advanced features, including self-cleaning technology and superior air filtration, create the perfect balance of comfort, efficiency, and healthy air quality. Ideal for bedrooms and living spaces where both quietness and smart control matter most.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Premium',
+        sizes:[
+          {sku:'MSZ-AP25VGKD2', name:'AP25'},
+          {sku:'MSZ-AP35VGKD2', name:'AP35'},
+          {sku:'MSZ-AP42VGKD2', name:'AP42'},
+          {sku:'MSZ-AP50VGKD2', name:'AP50'},
+          {sku:'MSZ-AP60VGKD2', name:'AP60'},
+          {sku:'MSZ-AP71VGKD2', name:'AP71'},
+          {sku:'MSZ-AP80VGKD2', name:'AP80'},
+        ],
+        documents: [
+          {name:'Brochure', file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@msz-ap.pdf' },
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/msz_muz-ap/1_operation/om_msz-ap25-50vg(k)d2_dg79a0clh01.pdf'},
+          {name:"Quick Start Guide", file:"https://mitsubishi-electric.co.nz/materials/aircon/info_guides/heat-pump-guide-ap-series.pdf"},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -437,7 +729,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "EF",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -482,26 +774,101 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F557fef257e8a4625abc555e5ce873f7f"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F97057449a9734f9688619296548646ff"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F37d35779e9c64e7aacb3eebd9359d138"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F52cd7aec8d8646cfbee89c5c0bb322a5"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F284a871f5fa34f58a34e719b12445309"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fc4d0265fc2324ee0b5759e63c3fbeef6"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F83a6d69b44d14b569797fdf6831ce662"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fb0c1382540b5493aa672c371b28cd5de"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F2724ed896d6a4acc935b7d83e8d7daf2"
           }
         ],
         name: "EF Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F5badf2c6358048ffbc1d7a3ab9895ef7",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69500B/designer-ef25-high-wall-pure-white/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The EcoCore Designer Series combines stunning aesthetics with smart technology to create the perfect balance of style and substance. Available in three designer colors, this heat pump delivers exceptional energy efficiency with the convenience of built-in Wi-Fi Energy Monitoring. Its elegant, slim-line design has won prestigious awards, while its advanced features ensure optimal comfort and energy savings. Perfect for style-conscious homeowners who want both beautiful design and smart functionality in their heating and cooling solution."
+        description: "The EcoCore Designer Series combines stunning aesthetics with smart technology to create the perfect balance of style and substance. Available in three designer colors, this heat pump delivers exceptional energy efficiency with the convenience of built-in Wi-Fi Energy Monitoring. Its elegant, slim-line design has won prestigious awards, while its advanced features ensure optimal comfort and energy savings. Perfect for style-conscious homeowners who want both beautiful design and smart functionality in their heating and cooling solution.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Premium',
+        sizes:[
+          {sku:'MSZ-EF25VGKD', name:'EF25'},
+          {sku:'MSZ-EF35VGKD', name:'EF35'},
+          {sku:'MSZ-EF42VGKD', name:'EF42'},
+          {sku:'MSZ-EF50VGKD', name:'EF50'},
+        ],
+        documents: [
+          {name:'Brochure', file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@msz-efvg.pdf' },
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/msz_muz-ef-vg/1_operation/om_msz-ef22-50vg(k)w_vg79y155h01.pdf'},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -509,7 +876,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "AS",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -574,26 +941,74 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F3854778da53143d296e82a59fe6ceca1"
           }
         ],
         name: "AS Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F79d8d66148f14dec9bcf1fe491a6e910",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69333B/large-capacity-as90-high-wall-ecocore-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The AS Series delivers powerful performance in an elegant package, making it perfect for larger spaces like open-plan living areas, schools, and shared spaces. With its combination of energy-efficient operation and advanced comfort features, it provides consistent heating and cooling while keeping running costs low. The unit's smart features, including optional Wi-Fi control and advanced filtration, create a comfortable and healthy environment that's easy to manage. Its robust design and protective features make it especially suitable for New Zealand's varied climate conditions."
+        description: "The AS Series delivers powerful performance in an elegant package, making it perfect for larger spaces like open-plan living areas, schools, and shared spaces. With its combination of energy-efficient operation and advanced comfort features, it provides consistent heating and cooling while keeping running costs low. The unit's smart features, including optional Wi-Fi control and advanced filtration, create a comfortable and healthy environment that's easy to manage. Its robust design and protective features make it especially suitable for New Zealand's varied climate conditions.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Plus',
+        sizes:[
+          {sku:'MSZ-AS90VGD', name:'AS90'},
+        ], 
+        documents: [
+          {name:'Brochure', file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@msz-as.pdf' },
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/msz_muz-as/1_operation/om_msz-as90vgd_jg79y723h02.pdf'},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -601,7 +1016,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "PKA",
-        unitConfig: "High Wall Split System",
+        unitConfig: "High Wall Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -646,26 +1061,74 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F74d4e9ce79274bc5950567925d8a8549"
           }
         ],
         name: "PKA Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F29d2deff760144bf8a50b547fc8ab894",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69227B/light-commercial-pka71-high-wall-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The PKA Series delivers powerful, efficient climate control in a sleek, professional package. Perfect for technical spaces like server rooms and laboratories, it combines precise temperature control with advanced features that make maintenance simple. Its flexible installation options and choice of control systems let you customize the perfect solution for your space. With energy-efficient operation and optional hospital-grade air filtration, it creates a comfortable, healthy environment while keeping running costs low."
+        description: "The PKA Series delivers powerful, efficient climate control in a sleek, professional package. Perfect for technical spaces like server rooms and laboratories, it combines precise temperature control with advanced features that make maintenance simple. Its flexible installation options and choice of control systems let you customize the perfect solution for your space. With energy-efficient operation and optional hospital-grade air filtration, it creates a comfortable, healthy environment while keeping running costs low.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Plus',
+        sizes:[
+          {sku:'MSZ-PKA71KAL', name:'PKA71'},
+          {sku:'MSZ-PKA80KAL', name:'PKA80'},
+        ], 
+        documents: [
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/p-series/pka-m/1_operation/om_pka-m60-100ka(l)_rg79y870h01_eng.pdf'},
+          {name: "Cleaning Instructions", file:"https://www.mitsubishi-electric.co.nz/materials/Aircon/Info_Guides/Cleaning-Your-Heat-Pump.pdf"}
+        ],
       }
     },
     {
@@ -673,7 +1136,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "MFZ",
-        unitConfig: "Floor Mounted",
+        unitConfig: "Floor Console",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -718,26 +1181,83 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Ff586ac6d86df4eacb07dabeeb8454a6f"
+          },
+          {
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fa0914428206e45ffaa4ebc233bed5557"
+          },
+          {
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F1c20d3e0cf644efba33d0724ba07d0bb"
           }
         ],
         name: "RapidHeat Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F828db4a7a30846188e761ce57bae90b6",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69390B/rapidheat-kw25-floor-console-with-built-in-wi-fi-control/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The RapidHeat Series is the only slimline floor console in New Zealand offering patented RapidHeat Technology, delivering warmth twice as fast as conventional systems. Its whisper-quiet operation and built-in Wi-Fi control make it perfect for any room where both comfort and convenience matter. The sleek, space-saving design fits beautifully in modern homes, while advanced features ensure efficient, comfortable heating all year round. Whether you're renovating, replacing an old fireplace, or looking for the perfect heating solution, the RapidHeat Series combines style, performance, and efficiency in one elegant package."
+        description: "The RapidHeat Series is the only slimline floor console in New Zealand offering patented RapidHeat Technology, delivering warmth twice as fast as conventional systems. Its whisper-quiet operation and built-in Wi-Fi control make it perfect for any room where both comfort and convenience matter. The sleek, space-saving design fits beautifully in modern homes, while advanced features ensure efficient, comfortable heating all year round. Whether you're renovating, replacing an old fireplace, or looking for the perfect heating solution, the RapidHeat Series combines style, performance, and efficiency in one elegant package.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Plus',
+        sizes:[
+          {sku:'MSZ-KW25VGK', name:'KW25'},
+          {sku:'MSZ-KW35VGK', name:'KW35'},
+          {sku:'MSZ-KW42VGK', name:'KW42'},
+          {sku:'MSZ-KW50VGK', name:'KW50'},
+          {sku:'MSZ-KW60VGK', name:'KW60'},
+        ],
+        documents: [
+          {name: "Brochure", file:"https://mitsubishi-electric.co.nz/materials/aircon/brochures/@mfz-kw.pdf"},
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/mfz_mufz-kw/1_operation/om_mfz-kw25-60vgk_dg79t878h02.pdf'}
+        ],
       }
     },
     {
@@ -745,7 +1265,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "MFZ",
-        unitConfig: "Floor Mounted",
+        unitConfig: "Floor Console",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -795,26 +1315,80 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Ff586ac6d86df4eacb07dabeeb8454a6f"
+          },
+          {
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fa0914428206e45ffaa4ebc233bed5557"
+          },
+          {
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F1c20d3e0cf644efba33d0724ba07d0bb"
           }
         ],
         name: "RapidHeat Hyper Core",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F828db4a7a30846188e761ce57bae90b6",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69394B/hypercore-kw50-floor-console-with-built-in-wi-fi-control/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The RapidHeat HyperCore is New Zealand's best performing heat pump in cold conditions, guaranteed to deliver full heating power even when temperatures drop to -15°C. Perfect for homes in colder regions, it combines HyperCore's superior cold-weather performance with rapid heating technology to ensure consistent warmth throughout winter. Its sleek design and smart features create the ideal balance of performance and style, while energy-efficient operation helps keep running costs down. Whether you live in a cold climate zone or simply want the most reliable heating solution available, the RapidHeat HyperCore delivers exceptional comfort when you need it most."
+        description: "The RapidHeat HyperCore is New Zealand's best performing heat pump in cold conditions, guaranteed to deliver full heating power even when temperatures drop to -15°C. Perfect for homes in colder regions, it combines HyperCore's superior cold-weather performance with rapid heating technology to ensure consistent warmth throughout winter. Its sleek design and smart features create the ideal balance of performance and style, while energy-efficient operation helps keep running costs down. Whether you live in a cold climate zone or simply want the most reliable heating solution available, the RapidHeat HyperCore delivers exceptional comfort when you need it most.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Premium',
+        sizes:[
+          {sku:'MSZ-KW50VGKHZ', name:'KW50'},
+          {sku:'MSZ-KW60VGKHZ', name:'KW60'},
+        ],
+        documents: [
+          {name: "Brochure", file:"https://mitsubishi-electric.co.nz/materials/aircon/brochures/@mfz-kw.pdf"},
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/m-series/mfz_mufz-kw/1_operation/om_mfz-kw25-60vgk_dg79t878h02.pdf'}
+        ],
       }
     },
     {
@@ -822,7 +1396,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "SLZ",
-        unitConfig: "Cassette",
+        unitConfig:  "Ceiling Mounted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -872,371 +1446,76 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+           file:"https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fe09ac4aa40c645d3adfb8c31fe8b0d43"
           }
         ],
         name: "Classic Cassette Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fd5a1fdea4bd34e13ba1444341d95ce3f",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69263B/classic-slz25-cassette-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The Classic Cassette Series combines elegant ceiling-mounted design with powerful, efficient performance. Its discreet installation saves valuable floor space while delivering consistent comfort throughout the room. With advanced features like the i-See Sensor and optional Wi-Fi control, it automatically adjusts to maintain perfect temperatures while minimizing energy use. Whether for homes or offices, this whisper-quiet system provides the ideal balance of comfort, efficiency, and sophisticated climate control."
-      }
-    },
-    {
-      name: "4-Way Large Cassette",
-      modelId: MODEL_ID,
-      data: {
-        seriesCode: "PLA",
-        unitConfig: "High Wall Split System",
-        smartFeatures: {
-          energyTracking: true,
-          voiceControl: true,
-          appControl: true,
-          homeAutomationIntegration: true
-        },
-        brand: "Mitsubishi",
-        keyFeatures: [
+        description: "The Classic Cassette Series combines elegant ceiling-mounted design with powerful, efficient performance. Its discreet installation saves valuable floor space while delivering consistent comfort throughout the room. With advanced features like the i-See Sensor and optional Wi-Fi control, it automatically adjusts to maintain perfect temperatures while minimizing energy use. Whether for homes or offices, this whisper-quiet system provides the ideal balance of comfort, efficiency, and sophisticated climate control.",
+        servicePlans: [
           {
-            heading: "Smart Temperature Sensing",
-            summary: "The advanced 3D i-See Sensor constantly monitors your space, detecting both floor temperature and room occupancy. Eight sensors work together, scanning the entire room every 3 minutes to ensure everyone stays comfortable while saving energy when areas are empty.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
           },
           {
-            heading: "Energy-Efficient Cooling and Heating",
-            summary: "Save on running costs with next-generation R32 technology. This environmentally friendly system uses 20% less refrigerant and delivers better efficiency than traditional units, helping reduce both your power bills and environmental impact.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
-          },
-          {
-            heading: "Perfect for Upgrades",
-            summary: "Replacing an older system? The unique pipe reuse technology lets you keep existing pipework while upgrading to more efficient R32 technology - saving installation time and costs while maintaining full warranty coverage.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Draft-Free Comfort",
-            summary: "Experience consistent comfort with advanced horizontal airflow. The system prevents cold or hot air from blowing directly on people, eliminating uncomfortable drafts while maintaining even temperatures throughout the room.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
-          },
-          {
-            heading: "Enhanced Heat Distribution",
-            summary: "The Wave Airflow mode ensures better heating performance by gently moving warm air throughout the space. Special vanes periodically adjust up and down, creating consistent temperatures from floor to ceiling.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
-          },
-          {
-            heading: "Wide-Angle Coverage",
-            summary: "Enjoy even temperatures in every corner with wide-angle outlets that distribute air throughout the entire room. The improved design reduces both horizontal airflow and fan speed by 20%, creating more comfortable conditions for everyone.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Easy Maintenance",
-            summary: "Keep your system running at its best with the optional automatic grille lowering feature. The grille can stop at eight different heights, making filter maintenance simple and hassle-free.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
           }
         ],
-        productMedia: [
+        relatedAccessories: [
           {
-            media: ""
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
           }
         ],
-        name: "4-Way Large Cassette",
-        thumbnailImage: "",
-        warrantyOptions: [
-          {
-            transferable: true,
-            type: "Full Coverage",
-            documents: [
-              {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69233B/pla-m71-suz-wired-4-way-large-cassette/warranty.pdf"
-              }
-            ],
-            durationYears: 5
-          }
+        class: 'Basic',
+        sizes:[ 
+          {sku:'SLZ-M25FA', name:'SLZ25'}, 
+          {sku:'SLZ-M35FA', name:'SLZ35'},
+          {sku:'SLZ-M42FA', name:'SLZ42'},
+          {sku:'SLZ-M50FA', name:'SLZ50'},
+          {sku:'SLZ-M60FA', name:'SLZ60'},
         ],
-        description: "The 4-Way Large Cassette combines powerful performance with intelligent comfort features, making it perfect for larger spaces. Its advanced airflow system ensures even temperatures throughout the room, while smart sensors automatically adjust settings to maintain comfort while saving energy. The sleek ceiling-mounted design saves valuable floor space, and optional features like automatic grille lowering make maintenance simple. Whether for commercial spaces or large residential areas, this system delivers efficient, comfortable climate control with sophisticated style."
-      }
-    },
-    {
-      name: "SlimFit Series",
-      modelId: MODEL_ID,
-      data: {
-        seriesCode: "MLZ",
-        unitConfig: "Cassette",
-        smartFeatures: {
-          energyTracking: true,
-          voiceControl: true,
-          appControl: true,
-          homeAutomationIntegration: true
-        },
-        brand: "Mitsubishi",
-        keyFeatures: [
-          {
-            heading: "Auto Vane Control",
-            summary: "Outlet vanes can be moved left and right when in Econo Cool mode, and up and down, using the remote controller; elimating draughts and enhancing room comfort.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "One-way Airflow",
-            summary: "Ideal for rooms where one-way air distribution is required, and a solution for spaces where lighting fixtures are installed in the centre of a room, one-way airflow provides a comofrtable environment with no draughts.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Compact Design",
-            summary: "Our ceiling cassettes are New Zealand's favourite. With the lightweight unit sitting in your ceiling space, only the grille is visible providing easy, discreet installation into your home or office.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Horizontal Airflow",
-            summary: "Advanced horizontal airflow eliminates uncomfortable draughts and improves airflow control. Six different discharge angles provide a lateral airflow advantage; ensuring air is evenly distributed across your entire room.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
-          },
-          {
-            heading: "Quiet Operation",
-            summary: "Starting from a hushed 26dBA, our MLZ Cassette Series is the perfect solution for quiet comfort; allowing you to feel the warmth, not hear it.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg>'
-          },
-          {
-            heading: "Air Purifying Filter",
-            summary: "This built-in filter removes dust and other particles, keeping the air clean all the time. Maintenance is as simple as vacuuming.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          }
+        documents: [
+          {name: "Brochure", file:"https://mitsubishi-electric.co.nz/materials/aircon/brochures/@slz-m.pdf"},
         ],
-        productMedia: [
-          {
-            media: ""
-          }
-        ],
-        name: "SlimFit Series",
-        thumbnailImage: "",
-        warrantyOptions: [
-          {
-            transferable: true,
-            type: "Full Coverage",
-            documents: [
-              {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/65300B/slimfit-mlz-25-cassette-heat-pump/warranty.pdf"
-              }
-            ],
-            durationYears: 5
-          }
-        ],
-        description: "The SlimFit MLZ Series with its streamlined design, airflow control features, and quiet operation from just 26dBA, is ideal for small installation spaces where one-way air distribution is needed."
-      }
-    },
-    {
-      name: "Ceiling Suspended Series",
-      modelId: MODEL_ID,
-      data: {
-        seriesCode: "PCA",
-        unitConfig: "Ceiling Suspended",
-        smartFeatures: {
-          energyTracking: true,
-          voiceControl: true,
-          appControl: true,
-          homeAutomationIntegration: true
-        },
-        brand: "Mitsubishi",
-        keyFeatures: [
-          {
-            heading: "Stylish Design",
-            summary: "Sharp, clean lines make this unit blend in more easily with your ceiling, providing low-profile heating or cooling.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Next-Generation R32 Technology",
-            summary: "R32 is a refrigerant with just one-third the global warming potential of R410A and has zero ozone depletion potential. R32 offers increased energy efficiency, and is said to be the next generation of refrigerants.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
-          },
-          {
-            heading: "Automatic Air Speed Adjustment",
-            summary: "In addition to the conventional 4-speed setting, our suspended units are now equipped with an automatic air-speed adjustment mode. This setting automatically adjusts the air speed to match the room environment. At the start of heating or cooling operation, the airflow is set to high-speed to quickly heat or cool the room. When the room temperature reaches your desired setting, the airflow speed is decreased automatically for stable comfortable heating or cooling operation.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Fresh Air Intake Option",
-            summary: "Units are equipped with an opening that enables the induction of fresh outside air.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Deluxe PAR Weekly Controller",
-            summary: "This attractive full dot liquid crystal display incorporates a large backlit screen and simple menus for easy operation. You can set up to 8 temperature and airflow patterns per day for seven days, allowing you to reduce your energy consumption when needed, saving you both time and money. Perfect for the busy home, workplace or retail store.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-1"><path d="M11 14h1v4"/><path d="M16 2v4"/><path d="M3 10h18"/><path d="M8 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>'
-          },
-          {
-            heading: "High and Low Ceiling Modes",
-            summary: "Units are equipped with high and low ceiling operation modes that make it possible to switch the airflow volume to match room height. The ability to choose the optimum airflow volume makes it possible to optimise the breezy sensation felt throughout the room.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          }
-        ],
-        productMedia: [
-          {
-            media: ""
-          }
-        ],
-        name: "Ceiling Suspended Series",
-        thumbnailImage: "",
-        warrantyOptions: [
-          {
-            transferable: true,
-            type: "Full Coverage",
-            documents: [
-              {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69276B/suspended-pca50-heat-pump/warranty.pdf"
-              }
-            ],
-            durationYears: 5
-          }
-        ],
-        description: "The SlimFit MLZ Series with its streamlined design, airflow control features, and quiet operation from just 26dBA, is ideal for small installation spaces where one-way air distribution is needed."
-      }
-    },
-    {
-      name: "Kitchen Suspended Series",
-      modelId: MODEL_ID,
-      data: {
-        seriesCode: "PCA",
-        unitConfig: "Ceiling Suspended",
-        smartFeatures: {
-          energyTracking: true,
-          voiceControl: true,
-          appControl: true,
-          homeAutomationIntegration: true
-        },
-        brand: "Mitsubishi",
-        keyFeatures: [
-          {
-            heading: "Built for Professional Kitchens",
-            summary: "Specially designed with a durable stainless steel casing that resists oil, grease, and kitchen grime. Easy to clean and maintain, it stays looking professional even in the busiest commercial kitchens.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Superior Oil Filtration",
-            summary: "The heavy-duty oil mist filter is 50% more effective than standard filters at capturing kitchen oils and smoke. This disposable filter system makes maintenance simple while protecting your investment and keeping your kitchen air cleaner.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Simple Cleaning Access",
-            summary: "Designed with busy kitchens in mind, the fan casing comes apart easily for thorough cleaning. The quick-release drain pan makes routine maintenance straightforward, saving time and effort.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Fresh Air Integration",
-            summary: "Improve kitchen ventilation with the optional fresh air intake. This feature helps maintain better air quality by bringing in fresh outside air, creating a more comfortable working environment for kitchen staff.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Energy-Efficient Operation",
-            summary: "Save on running costs with advanced R32 technology. This next-generation system delivers efficient cooling while using less energy than traditional units - perfect for kitchens that operate long hours.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge"><path d="M15.6 2.7a10 10 0 1 0 5.7 5.7"/><circle cx="12" cy="12" r="2"/><path d="M13.4 10.6 L19 5"/></svg>'
-          },
-          {
-            heading: "Smart Temperature Control",
-            summary: "The Deluxe PAR Controller features a large, easy-to-read display and simple controls. Set up to 8 different temperature patterns each day to match your kitchen's busy periods while saving energy during quieter times.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          }
-        ],
-        productMedia: [
-          {
-            media: ""
-          }
-        ],
-        name: "Kitchen Suspended Series",
-        thumbnailImage: "",
-        warrantyOptions: [
-          {
-            transferable: true,
-            type: "Full Coverage",
-            documents: [
-              {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69480B/kitchen-suspended-pca-m71ha2-stainless-steel-heat-pump/warranty.pdf"
-              }
-            ],
-            durationYears: 5
-          }
-        ],
-        description: "This stainless steel series is designed specifically for professional kitchens, combining durability with efficient performance. Its robust construction stands up to the demanding environment of commercial kitchens, while superior filtration handles oil and cooking residues with ease. Easy maintenance features and flexible programming options make it the perfect choice for restaurants, cafes, and commercial kitchens where reliable climate control is essential."
-      }
-    },
-    {
-      name: "Concealed SEZ Series",
-      modelId: MODEL_ID,
-      data: {
-        seriesCode: "SEZ",
-        unitConfig: "High Wall Split System",
-        smartFeatures: {
-          energyTracking: true,
-          voiceControl: true,
-          appControl: true,
-          homeAutomationIntegration: true
-        },
-        brand: "Mitsubishi",
-        keyFeatures: [
-          {
-            heading: "Completely Hidden Design",
-            summary: "Perfect for homes with a modern, minimalist style. The unit installs completely out of sight above your ceiling, with only subtle air vents visible. Enjoy perfect comfort without compromising your room's aesthetics.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Ultra-Quiet Operation",
-            summary: "Experience whisper-quiet comfort with some of the lowest noise levels in its class. Perfect for bedrooms, living areas, and other spaces where peace and quiet matter most.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg>'
-          },
-          {
-            heading: "Flexible Installation",
-            summary: "The compact design fits easily into tight ceiling spaces, making it ideal for renovations or new builds. Multiple installation options ensure the perfect fit for your home's layout.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          },
-          {
-            heading: "Energy-Smart Performance",
-            summary: "Save on power bills with advanced energy-efficient technology. The system automatically adjusts its output to match your needs, reducing energy waste while maintaining optimal comfort.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
-          },
-          {
-            heading: "Even Temperature Distribution",
-            summary: "Enjoy consistent comfort throughout your space with advanced airflow design. The system delivers air evenly across the room, eliminating hot and cold spots for perfect comfort everywhere.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
-          },
-          {
-            heading: "Optional Wi-Fi Control",
-            summary: "Add smart control capabilities to manage your comfort from anywhere. Adjust settings, monitor usage, and ensure your home is always at the perfect temperature using your smartphone.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>'
-          },
-          {
-            heading: "Easy Filter Maintenance",
-            summary: "Keep your air clean with minimal effort. The long-life filter is easily accessible for quick cleaning, helping maintain optimal air quality and system efficiency.",
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
-          }
-        ],
-        productMedia: [
-          {
-            media: ""
-          }
-        ],
-        name: "Concealed SEZ Series",
-        thumbnailImage: "",
-        warrantyOptions: [
-          {
-            transferable: true,
-            type: "Full Coverage",
-            documents: [
-              {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69271B/concealed-sez-m35-heat-pump/warranty.pdf"
-              }
-            ],
-            durationYears: 5
-          }
-        ],
-        description: "The Concealed SEZ Series offers the perfect solution for homeowners who want powerful climate control without visible equipment. These compact, whisper-quiet units fit neatly above your ceiling, delivering consistent comfort while maintaining your home's clean, modern aesthetic. With energy-efficient operation and smart control options, it provides reliable heating and cooling that's as discreet as it is effective. Whether you're building new or renovating, this system delivers perfect comfort without compromising your interior design."
       }
     },
     {
@@ -1244,7 +1523,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "PEAD",
-        unitConfig: "Ducted",
+        unitConfig: "Central Ducted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -1289,26 +1568,83 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F5ff4ce0c4c0e478c8306941e182424d8"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F9c074f7434d74b5b87ad1d5351b438e1"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fa6a8bdbee27241cd81508cc4ffb2d990"
           }
         ],
         name: "Ducted PEAD Series",
-        thumbnailImage: "",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fcb9e8bace5834414b61b36ac0cd72aa2",
         warrantyOptions: [
           {
             transferable: true,
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69255B/ducted-pead-50-heat-pump/warranty.pdf"
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The Ducted PEAD Series transforms how you heat and cool your home, providing whole-house comfort that's completely hidden from view. Perfect for new homes or renovations, it delivers consistent temperatures throughout every room while keeping energy costs down. The optional zone control lets you customize comfort for different areas, while advanced filtration ensures clean, healthy air for your family. With its whisper-quiet operation and smart control options, it's the ideal solution for homeowners who want efficient, unobtrusive climate control."
+        description: "The Ducted PEAD Series transforms how you heat and cool your home, providing whole-house comfort that's completely hidden from view. Perfect for new homes or renovations, it delivers consistent temperatures throughout every room while keeping energy costs down. The optional zone control lets you customize comfort for different areas, while advanced filtration ensures clean, healthy air for your family. With its whisper-quiet operation and smart control options, it's the ideal solution for homeowners who want efficient, unobtrusive climate control.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class:'Premium',
+        sizes:[
+          {sku:'PEAD-M50JAA', name:'PEAD-M50'},
+          {sku:'PEAD-M60JAA', name:'PEAD-M50'},
+          {sku:'PEAD-M71JAA', name:'PEAD-M71'},
+          {sku:'PEAD-M100JAA', name:'PEAD-M100'},
+          {sku:'PEAD-M125JAA', name:'PEAD-M125'},
+          {sku:'PEAD-M140JAA', name:'PEAD-M140'},
+        ],
+        documents: [
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/p-series/pead-m/1_operation/om_pead-m50-140jaa(d)_vn79d606h03.pdf'}
+        ],
       }
     },
     {
@@ -1316,7 +1652,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "PEA",
-        unitConfig: "Ducted",
+        unitConfig: "Central Ducted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -1356,12 +1692,142 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F5ff4ce0c4c0e478c8306941e182424d8"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2F9c074f7434d74b5b87ad1d5351b438e1"
+          },
+          {
+            file: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fa6a8bdbee27241cd81508cc4ffb2d990"
           }
         ],
         name: "Ducted PEA Series",
+        thumbnailImage: "https://cdn.builder.io/api/v1/image/assets%2F51506ff347d64e8396d0bb00d1642bff%2Fcb9e8bace5834414b61b36ac0cd72aa2",
+        warrantyOptions: [
+          {
+            transferable: true,
+            type: "Full Coverage",
+            documents: [
+              {
+               file:"https://www.mitsubishi-electric.co.nz/materials/warranty/aircon.pdf"
+              }
+            ],
+            durationYears: 5
+          }
+        ],
+        description: "The PEA Series delivers superior whole-home comfort with its powerful yet discreet ducted system. Perfect for larger homes and spaces, it combines high-performance heating and cooling with energy-efficient operation. The system's flexible design allows for customized installation, ensuring perfect comfort in every room while maintaining your home's aesthetic appeal. With smart controls and optional zoning, it offers the ideal balance of comfort, efficiency, and sophisticated climate control.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class:'Premium',
+        sizes:[
+          {sku:'PEA-M100GAA', name:'PEA-M100'},
+          {sku:'PEA-M125GAA', name:'PEA-M125'},
+          {sku:'PEA-M140GAA', name:'PEA-M140'},
+        ],
+        documents: [
+          {name: "Brochure", file:'https://mitsubishi-electric.co.nz/materials/aircon/brochures/@pea-m.pdf'},
+          {name: "Operation Manual / User Guide", file:'https://mitsubishi-electric.co.nz/materials/aircon/manuals/r32/p-series/pea-m/1_operation/om_pea-m100-140gaa_vn79d608h03.pdf'}
+        ],
+      },
+    }
+  ];
+/* 
+  const unusedSeries: HVACUnitSeries[] = [
+       {
+      name: "4-Way Large Cassette",
+      modelId: MODEL_ID,
+      data: {
+        seriesCode: "PLA",
+        unitConfig: "High Wall Mounted",
+        smartFeatures: {
+          energyTracking: true,
+          voiceControl: true,
+          appControl: true,
+          homeAutomationIntegration: true
+        },
+        brand: "Mitsubishi",
+        keyFeatures: [
+          {
+            heading: "Smart Temperature Sensing",
+            summary: "The advanced 3D i-See Sensor constantly monitors your space, detecting both floor temperature and room occupancy. Eight sensors work together, scanning the entire room every 3 minutes to ensure everyone stays comfortable while saving energy when areas are empty.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Energy-Efficient Cooling and Heating",
+            summary: "Save on running costs with next-generation R32 technology. This environmentally friendly system uses 20% less refrigerant and delivers better efficiency than traditional units, helping reduce both your power bills and environmental impact.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
+          },
+          {
+            heading: "Perfect for Upgrades",
+            summary: "Replacing an older system? The unique pipe reuse technology lets you keep existing pipework while upgrading to more efficient R32 technology - saving installation time and costs while maintaining full warranty coverage.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Draft-Free Comfort",
+            summary: "Experience consistent comfort with advanced horizontal airflow. The system prevents cold or hot air from blowing directly on people, eliminating uncomfortable drafts while maintaining even temperatures throughout the room.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
+          },
+          {
+            heading: "Enhanced Heat Distribution",
+            summary: "The Wave Airflow mode ensures better heating performance by gently moving warm air throughout the space. Special vanes periodically adjust up and down, creating consistent temperatures from floor to ceiling.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
+          },
+          {
+            heading: "Wide-Angle Coverage",
+            summary: "Enjoy even temperatures in every corner with wide-angle outlets that distribute air throughout the entire room. The improved design reduces both horizontal airflow and fan speed by 20%, creating more comfortable conditions for everyone.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Easy Maintenance",
+            summary: "Keep your system running at its best with the optional automatic grille lowering feature. The grille can stop at eight different heights, making filter maintenance simple and hassle-free.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          }
+        ],
+      media: [
+          {
+           file:""
+          }
+        ],
+        name: "4-Way Large Cassette",
         thumbnailImage: "",
         warrantyOptions: [
           {
@@ -1369,13 +1835,491 @@ interface Media {
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69224B/ducted-pea100-heat-pump/warranty.pdf"
+               file:"https://mitsubishi-electric.co.nz/heatpump/i/69233B/pla-m71-suz-wired-4-way-large-cassette/warranty.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The PEA Series delivers superior whole-home comfort with its powerful yet discreet ducted system. Perfect for larger homes and spaces, it combines high-performance heating and cooling with energy-efficient operation. The system's flexible design allows for customized installation, ensuring perfect comfort in every room while maintaining your home's aesthetic appeal. With smart controls and optional zoning, it offers the ideal balance of comfort, efficiency, and sophisticated climate control."
+        description: "The 4-Way Large Cassette combines powerful performance with intelligent comfort features, making it perfect for larger spaces. Its advanced airflow system ensures even temperatures throughout the room, while smart sensors automatically adjust settings to maintain comfort while saving energy. The sleek ceiling-mounted design saves valuable floor space, and optional features like automatic grille lowering make maintenance simple. Whether for commercial spaces or large residential areas, this system delivers efficient, comfortable climate control with sophisticated style.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: 'Plus',
+        sizes:[ 
+          {sku:'PLA-M71EA-S', name:'SLZ25'},
+
+
+        ]
+      }
+    },
+    {
+      name: "SlimFit Series",
+      modelId: MODEL_ID,
+      data: {
+        seriesCode: "MLZ",
+        unitConfig:  "Ceiling Mounted",
+        smartFeatures: {
+          energyTracking: true,
+          voiceControl: true,
+          appControl: true,
+          homeAutomationIntegration: true
+        },
+        brand: "Mitsubishi",
+        keyFeatures: [
+          {
+            heading: "Auto Vane Control",
+            summary: "Outlet vanes can be moved left and right when in Econo Cool mode, and up and down, using the remote controller; elimating draughts and enhancing room comfort.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "One-way Airflow",
+            summary: "Ideal for rooms where one-way air distribution is required, and a solution for spaces where lighting fixtures are installed in the centre of a room, one-way airflow provides a comofrtable environment with no draughts.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Compact Design",
+            summary: "Our ceiling cassettes are New Zealand's favourite. With the lightweight unit sitting in your ceiling space, only the grille is visible providing easy, discreet installation into your home or office.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Horizontal Airflow",
+            summary: "Advanced horizontal airflow eliminates uncomfortable draughts and improves airflow control. Six different discharge angles provide a lateral airflow advantage; ensuring air is evenly distributed across your entire room.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
+          },
+          {
+            heading: "Quiet Operation",
+            summary: "Starting from a hushed 26dBA, our MLZ Cassette Series is the perfect solution for quiet comfort; allowing you to feel the warmth, not hear it.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg>'
+          },
+          {
+            heading: "Air Purifying Filter",
+            summary: "This built-in filter removes dust and other particles, keeping the air clean all the time. Maintenance is as simple as vacuuming.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          }
+        ],
+      media: [
+          {
+           file:""
+          }
+        ],
+        name: "SlimFit Series",
+        thumbnailImage: "",
+        warrantyOptions: [
+          {
+            transferable: true,
+            type: "Full Coverage",
+            documents: [
+              {
+               file:"https://mitsubishi-electric.co.nz/heatpump/i/65300B/slimfit-mlz-25-cassette-heat-pump/warranty.pdf"
+              }
+            ],
+            durationYears: 5
+          }
+        ],
+        description: "The SlimFit MLZ Series with its streamlined design, airflow control features, and quiet operation from just 26dBA, is ideal for small installation spaces where one-way air distribution is needed.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: "Plus",
+      }
+    },
+    {
+      name: "Ceiling Suspended Series",
+      modelId: MODEL_ID,
+      data: {
+        seriesCode: "PCA",
+        unitConfig: "Ceiling Mounted",
+        smartFeatures: {
+          energyTracking: true,
+          voiceControl: true,
+          appControl: true,
+          homeAutomationIntegration: true
+        },
+        brand: "Mitsubishi",
+        keyFeatures: [
+          {
+            heading: "Stylish Design",
+            summary: "Sharp, clean lines make this unit blend in more easily with your ceiling, providing low-profile heating or cooling.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Next-Generation R32 Technology",
+            summary: "R32 is a refrigerant with just one-third the global warming potential of R410A and has zero ozone depletion potential. R32 offers increased energy efficiency, and is said to be the next generation of refrigerants.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
+          },
+          {
+            heading: "Automatic Air Speed Adjustment",
+            summary: "In addition to the conventional 4-speed setting, our suspended units are now equipped with an automatic air-speed adjustment mode. This setting automatically adjusts the air speed to match the room environment. At the start of heating or cooling operation, the airflow is set to high-speed to quickly heat or cool the room. When the room temperature reaches your desired setting, the airflow speed is decreased automatically for stable comfortable heating or cooling operation.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Fresh Air Intake Option",
+            summary: "Units are equipped with an opening that enables the induction of fresh outside air.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Deluxe PAR Weekly Controller",
+            summary: "This attractive full dot liquid crystal display incorporates a large backlit screen and simple menus for easy operation. You can set up to 8 temperature and airflow patterns per day for seven days, allowing you to reduce your energy consumption when needed, saving you both time and money. Perfect for the busy home, workplace or retail store.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-1"><path d="M11 14h1v4"/><path d="M16 2v4"/><path d="M3 10h18"/><path d="M8 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>'
+          },
+          {
+            heading: "High and Low Ceiling Modes",
+            summary: "Units are equipped with high and low ceiling operation modes that make it possible to switch the airflow volume to match room height. The ability to choose the optimum airflow volume makes it possible to optimise the breezy sensation felt throughout the room.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          }
+        ],
+      media: [
+          {
+           file:""
+          }
+        ],
+        name: "Ceiling Suspended Series",
+        thumbnailImage: "",
+        warrantyOptions: [
+          {
+            transferable: true,
+            type: "Full Coverage",
+            documents: [
+              {
+               file:"https://mitsubishi-electric.co.nz/heatpump/i/69276B/suspended-pca50-heat-pump/warranty.pdf"
+              }
+            ],
+            durationYears: 5
+          }
+        ],
+        description: "The SlimFit MLZ Series with its streamlined design, airflow control features, and quiet operation from just 26dBA, is ideal for small installation spaces where one-way air distribution is needed.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class: "Plus",
+      }
+    },
+    {
+      name: "Kitchen Suspended Series",
+      modelId: MODEL_ID,
+      data: {
+        seriesCode: "PCA",
+        unitConfig: "Ceiling Mounted",
+        smartFeatures: {
+          energyTracking: true,
+          voiceControl: true,
+          appControl: true,
+          homeAutomationIntegration: true
+        },
+        brand: "Mitsubishi",
+        keyFeatures: [
+          {
+            heading: "Built for Professional Kitchens",
+            summary: "Specially designed with a durable stainless steel casing that resists oil, grease, and kitchen grime. Easy to clean and maintain, it stays looking professional even in the busiest commercial kitchens.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Superior Oil Filtration",
+            summary: "The heavy-duty oil mist filter is 50% more effective than standard filters at capturing kitchen oils and smoke. This disposable filter system makes maintenance simple while protecting your investment and keeping your kitchen air cleaner.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Simple Cleaning Access",
+            summary: "Designed with busy kitchens in mind, the fan casing comes apart easily for thorough cleaning. The quick-release drain pan makes routine maintenance straightforward, saving time and effort.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Fresh Air Integration",
+            summary: "Improve kitchen ventilation with the optional fresh air intake. This feature helps maintain better air quality by bringing in fresh outside air, creating a more comfortable working environment for kitchen staff.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Energy-Efficient Operation",
+            summary: "Save on running costs with advanced R32 technology. This next-generation system delivers efficient cooling while using less energy than traditional units - perfect for kitchens that operate long hours.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge"><path d="M15.6 2.7a10 10 0 1 0 5.7 5.7"/><circle cx="12" cy="12" r="2"/><path d="M13.4 10.6 L19 5"/></svg>'
+          },
+          {
+            heading: "Smart Temperature Control",
+            summary: "The Deluxe PAR Controller features a large, easy-to-read display and simple controls. Set up to 8 different temperature patterns each day to match your kitchen's busy periods while saving energy during quieter times.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          }
+        ],
+      media: [
+          {
+           file:""
+          }
+        ],
+        name: "Kitchen Suspended Series",
+        thumbnailImage: "",
+        warrantyOptions: [
+          {
+            transferable: true,
+            type: "Full Coverage",
+            documents: [
+              {
+               file:"https://mitsubishi-electric.co.nz/heatpump/i/69480B/kitchen-suspended-pca-m71ha2-stainless-steel-heat-pump/warranty.pdf"
+              }
+            ],
+            durationYears: 5
+          }
+        ],
+        description: "This stainless steel series is designed specifically for professional kitchens, combining durability with efficient performance. Its robust construction stands up to the demanding environment of commercial kitchens, while superior filtration handles oil and cooking residues with ease. Easy maintenance features and flexible programming options make it the perfect choice for restaurants, cafes, and commercial kitchens where reliable climate control is essential.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class:'Premium',
+      }
+    },
+    {
+      name: "Concealed SEZ Series",
+      modelId: MODEL_ID,
+      data: {
+        seriesCode: "SEZ",
+        unitConfig: "High Wall Mounted",
+        smartFeatures: {
+          energyTracking: true,
+          voiceControl: true,
+          appControl: true,
+          homeAutomationIntegration: true
+        },
+        brand: "Mitsubishi",
+        keyFeatures: [
+          {
+            heading: "Completely Hidden Design",
+            summary: "Perfect for homes with a modern, minimalist style. The unit installs completely out of sight above your ceiling, with only subtle air vents visible. Enjoy perfect comfort without compromising your room's aesthetics.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Ultra-Quiet Operation",
+            summary: "Experience whisper-quiet comfort with some of the lowest noise levels in its class. Perfect for bedrooms, living areas, and other spaces where peace and quiet matter most.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg>'
+          },
+          {
+            heading: "Flexible Installation",
+            summary: "The compact design fits easily into tight ceiling spaces, making it ideal for renovations or new builds. Multiple installation options ensure the perfect fit for your home's layout.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          },
+          {
+            heading: "Energy-Smart Performance",
+            summary: "Save on power bills with advanced energy-efficient technology. The system automatically adjusts its output to match your needs, reducing energy waste while maintaining optimal comfort.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>'
+          },
+          {
+            heading: "Even Temperature Distribution",
+            summary: "Enjoy consistent comfort throughout your space with advanced airflow design. The system delivers air evenly across the room, eliminating hot and cold spots for perfect comfort everywhere.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>'
+          },
+          {
+            heading: "Optional Wi-Fi Control",
+            summary: "Add smart control capabilities to manage your comfort from anywhere. Adjust settings, monitor usage, and ensure your home is always at the perfect temperature using your smartphone.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>'
+          },
+          {
+            heading: "Easy Filter Maintenance",
+            summary: "Keep your air clean with minimal effort. The long-life filter is easily accessible for quick cleaning, helping maintain optimal air quality and system efficiency.",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
+          }
+        ],
+      media: [
+          {
+           file:""
+          }
+        ],
+        name: "Concealed SEZ Series",
+        thumbnailImage: "",
+        warrantyOptions: [
+          {
+            transferable: true,
+            type: "Full Coverage",
+            documents: [
+              {
+               file:"https://mitsubishi-electric.co.nz/heatpump/i/69271B/concealed-sez-m35-heat-pump/warranty.pdf"
+              }
+            ],
+            durationYears: 5
+          }
+        ],
+        description: "The Concealed SEZ Series offers the perfect solution for homeowners who want powerful climate control without visible equipment. These compact, whisper-quiet units fit neatly above your ceiling, delivering consistent comfort while maintaining your home's clean, modern aesthetic. With energy-efficient operation and smart control options, it provides reliable heating and cooling that's as discreet as it is effective. Whether you're building new or renovating, this system delivers perfect comfort without compromising your interior design.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class:'Premium',
       }
     },
     {
@@ -1383,7 +2327,7 @@ interface Media {
       modelId: MODEL_ID,
       data: {
         seriesCode: "M",
-        unitConfig: "Ducted",
+        unitConfig: "Central Ducted",
         smartFeatures: {
           energyTracking: true,
           voiceControl: true,
@@ -1423,9 +2367,9 @@ interface Media {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>'
           }
         ],
-        productMedia: [
+      media: [
           {
-            media: ""
+           file:""
           }
         ],
         name: "PEA Splitable Series",
@@ -1436,13 +2380,57 @@ interface Media {
             type: "Full Coverage",
             documents: [
               {
-                document: "https://mitsubishi-electric.co.nz/heatpump/i/69378B/pea-m100haa-deluxe-splittable-ducted-system/warranty.pdf"
+               file:"https://mitsubishi-electric.co.nz/heatpump/i/69378B/pea-m100haa-deluxe-splittable-ducted-system/warranty.pdf"
               }
             ],
             durationYears: 5
           }
         ],
-        description: "The PEA Splittable Series brings innovative design to whole-home comfort, making it perfect for both new homes and renovations. Its unique two-piece construction allows for easy installation in spaces where traditional ducted systems might not fit. The system delivers powerful, efficient climate control while remaining completely hidden from view, with only subtle vents visible. Whether you're upgrading an existing system or planning a new installation, this versatile solution offers the perfect balance of performance, efficiency, and installation flexibility."
+        description: "The PEA Splittable Series brings innovative design to whole-home comfort, making it perfect for both new homes and renovations. Its unique two-piece construction allows for easy installation in spaces where traditional ducted systems might not fit. The system delivers powerful, efficient climate control while remaining completely hidden from view, with only subtle vents visible. Whether you're upgrading an existing system or planning a new installation, this versatile solution offers the perfect balance of performance, efficiency, and installation flexibility.",
+        servicePlans: [
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "99750f450ffe46508d63e71cfef287ae",
+              "model": "hvac-servicing"
+            }
+          },
+          {
+            plan: {
+              "@type": "@builder.io/core:Reference",
+              "id": "ded7a1b3b77244579e453fb8c12f6a98",
+              "model": "hvac-servicing"
+            }
+          }
+        ],
+        relatedAccessories: [
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "870534bc8ae0432289813e1c60eb57ce",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "208731b22aa54ef19c90c6d99b844a45",
+              "model": "hvac-unit-accessories"
+            }
+          },
+          {
+            accessory: {
+              "@type": "@builder.io/core:Reference",
+              "id": "f3e61ba2f75d45a581c286c8e369e3b6",
+              "model": "hvac-unit-accessories"
+            }
+          }
+        ],
+        class:'Premium',
+        sizes:[
+          {sku:'PEA-M100HAA', name:'PEA-M100'},
+        ]
       }
     }
-  ];
+
+  ] */
